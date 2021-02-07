@@ -1,0 +1,301 @@
+:root {
+    --darck-blue:  #363f5f;
+    --green: #49aa26;
+    --ligth_green: #3dd705;
+    --red: #e92929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 93.75%;/*É o mesmo q 15px. 100% é o que vale a 16px*/
+}
+
+body{
+    background: #f0f2f5;
+    font-family: "Poppins", sans-serif;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border: solid red;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}/*Todo esse sr-only (class aplicada nos h2) é importante para ele sumir no display pra gente, porem nao sumir para os leitores de tela.*/
+
+.container {
+    width: min(90vw,800px);/*Aqui quer dizer o seguinte. O WIDTH (largura da da section)
+    vai obedecer a seguinte função: vai dividir a largura em 100 pedacinhos, e vai pegar 90 pedacinhos (90%)
+    se esses 90% for menor que 800px, entao o width vai ter esse valor. Se vc crescer a pagina e esses 90% ficar grande,
+    ele vai limitar a 800px*/
+    margin: auto;
+
+}
+/*Lembrando que pra referir a classe, usa o ponto, pra 
+referir a id usa #*/
+
+/* Titles ==========================*/
+
+h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: #363f5f;
+    font-weight: 400;
+}
+
+/*Links e Buttons ======================*/
+a {
+    color: var(--green);
+    text-decoration: none;/*Tirando o underline*/
+}
+a:hover {
+    color: var(--ligth_green);
+}
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    color: white;
+    background: var(--green);
+    padding: 0;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+button:hover {
+    background: var(--ligth_green);
+}
+
+.button.new{
+    margin-bottom: .8rem;
+    display: inline-block;/*Elementos inline eu n consigo aplicar o margin-botton, entao eu uso o display block. Mas o display block trava tudo ate o final da largura da pagina, o inline nao. Entao usa o inline-block*/
+   
+}
+
+.button.cancel{
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 0.25rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.button.cancel:hover{
+    opacity: 1;
+}
+/* Header ==========================*/
+
+header{
+    background: #2d4a22;
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+
+#logo {
+    color: #fff;
+    font-weight: 100;
+}
+
+/* Balance ==========================*/
+
+#balance {
+    margin-top: -8rem;
+}
+#balance h2 {
+    color: white;
+}
+/* Cards ==========================*/
+.card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    color: var(--darck-blue);
+    font-weight: normal;
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+    display: flex; /*Vai deixar os elementos um ao lado do outro. Muda o comportamento dos elementos dentro da caixa*/
+    align-items: center;
+    justify-content: space-between; /*Coloca espaço entre os elementos da caixa h3.*/
+}
+
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;/*Separação entre as linhas, caso estivesse com muitas linhas.*/
+    margin-top: 1rem;
+}
+.card.total {
+    background: var(--green);
+    color: white;
+    
+
+}
+
+/*Transactions ======================*/
+/*Tentando corrigir o problema da tabela em telas mobile. por minha conta.*/
+#transaction {
+    width: 100%;
+    display: block;
+    overflow-x: auto;/*Com isso aqui, antes de colocar a gente tinha a tabela quebrando a tela quando tava no formato mobile. Agora com isso ele deixa a tela travada e quando precisar, ou seja, quando der overflow da tabela na tela, ele vai deixar automatico o eixo x. Vai poder rolar a barra de rolagem só na tabela.*/
+    /*FUNCIONOU!*/
+
+}
+
+
+/* Table ==========================*/
+
+#data-table {
+   /* display: block;*/
+
+    width: 100%;
+    color: #969cb3;
+
+   /* overflow-x: auto;/*Com isso aqui, antes de colocar a gente tinha a tabela quebrando a tela quando tava no formato mobile. Agora com isso ele deixa a tela travada e quando precisar, ou seja, quando der overflow da tabela na tela, ele vai deixar automatico o eixo x. Vai poder rolar a barra de rolagem só na tabela.*/
+
+}
+
+table thead tr th:first-child,
+table thead tr td:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+
+table thead tr th:last-child,
+table thead tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+}/*Esse negocio de :last-child e :first-child são chamados de pseudo class. Onde a gente consegue acessar elementos html nao somente pelos seletores. A gente consegue acessar tambem esses seletores especiais.*/
+
+table thead th{
+    background: white;
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+
+table tr {
+    opacity: 0.7
+}
+table tbody tr:hover {
+    opacity: 1
+}
+
+
+table td{
+    background: white;
+    border-spacing: 0 0.5rem;/* Eu tenho 0 no vertical e 0.5 no horizontal*/
+    padding: 1rem 2rem;
+    font-weight: normal;
+}
+
+td.description {
+    color: var(--darck-blue);
+}
+td.income {
+    color: #12a454;
+}
+td.expense {
+    color: #e92929;
+}
+
+/*Modal===========================*/
+
+.modal-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);/*Com isso eu tenho a 0.7 de transparencia*/
+    position: fixed;/*Aqui a gente coloca fixed, e ele vai ficar solto do resto da tela, ai eu uso o top: 0 pra ele ir la pra cima e ocupar a tela toda.*/
+    top: 0;
+    display: flex;/*Coloco os elementos de dentro da modal-overlay um ao lado do outro.*/
+    align-items: center;/*Alinha verticalmente no centro*/
+    justify-content: center;/*Alinha horizontalmente no centro (justifica)*/
+
+    opacity:0;
+    visibility: hidden;
+    z-index: 999;
+
+}
+.modal-overlay.active {
+    
+    opacity:1;
+    visibility: visible;/*Esses dois termos sao muito legais. Note que la no HTML eu adicionei mais uma classe na div modal-overlay. Dai usando Javascript eu vou poder adcionar ou tirar uma classe daquelas, quando eu clicar no botao. Sem a classe active eu vou colocar outras configurações.*/
+} 
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+    position: relative;
+    z-index: 1;
+
+}
+
+/*Form============================*/
+
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    width: 100%;
+
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small {
+    opacity: 0.4;
+}
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: centers;
+}
+
+.input-group.actions .button, 
+.input-group.actions button {
+    width: 48%;
+}
+/* Footer ==========================*/
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--darck-blue);
+    opacity: 0.6;
+}
+
+/*Responsive =======================*/
+/*Adicionando responssividade na pagina*/
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+
+    }
+    #balance {
+        /*display: flex; /*coloca os elementos dentro da caixa balance um ao lado do outro, como vimos; Vamos usar o display: grid pq ele permite a gente usar funcionalidades tanto da horizontal quanto na vertical*/
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /*Quando eu uso o display grid eu preciso informar a configuração dos elementos. Dai eu uso a unidade fr pra dize q eu quero fraçao do tamanho, ele se adapta. Nesse caso ai eu quero 3 colunas, coloquei 3 info.*/
+        gap: 2rem; /*Pra colocar espaço entre as colunas. Tambem posso usar assim: grid-tamplate-columns: repeat(3,1fr)*/ 
+    }
+}/*Muito legal, eu coloco a regra dentro dos parenteses e ai dentro das chaves eu coloco a configuração que eu quero, nesse caso aqui, a partir de 800 width eu quero o q ta aqui. menor que isso eu quero as configurações que estao la em cima.*/
